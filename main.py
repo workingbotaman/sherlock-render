@@ -5,7 +5,6 @@ from fastapi import FastAPI
 import uvicorn
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-import nest_asyncio
 
 app = FastAPI()
 
