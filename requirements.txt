@@ -1,1 +1,9 @@
-fastapi[all]
+Faker
+presidio-analyzer
+presidio-anonymizer
+presidio-image-redactor
+tesseract
+spacy
+fastapi
+uvicorn
+python-multipart
