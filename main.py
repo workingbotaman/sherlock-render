@@ -1,15 +1,11 @@
 from presidio_analyzer import AnalyzerEngine, PatternRecognizer, Pattern
 from presidio_anonymizer import AnonymizerEngine
 from collections import defaultdict
-from presidio_image_redactor import ImageRedactorEngine
-from PIL import Image
-from io import BytesIO
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI
 import uvicorn
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import nest_asyncio
-import base64
 
 app = FastAPI()
 
@@ -23,14 +19,10 @@ app.add_middleware(
     allow_headers = ["*"],
 )
 
-class image_input(BaseModel):
-  image: UploadFile
-
 class text_input(BaseModel):
   text: str
 
 analyzer = AnalyzerEngine()
-redactor = ImageRedactorEngine()
 
 @app.post('/text')
 async def analyze_text(input_text : text_input):
