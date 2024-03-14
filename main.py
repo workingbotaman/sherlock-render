@@ -1,14 +1,9 @@
-import re
-from faker import Faker
 from presidio_analyzer import AnalyzerEngine, PatternRecognizer, Pattern
 from presidio_anonymizer import AnonymizerEngine
-from presidio_anonymizer.entities import OperatorConfig
 from collections import defaultdict
 from presidio_image_redactor import ImageRedactorEngine
 from PIL import Image
-from flask import Flask, request, jsonify
 from io import BytesIO
-from pyngrok import ngrok
 from fastapi import FastAPI, File, UploadFile, HTTPException
 import uvicorn
 from pydantic import BaseModel
